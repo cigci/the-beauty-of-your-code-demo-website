@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBOYC Demo</title>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="./public/js/tboyc.min.js"></script>
+
+    <!-- #region Favicon -->
+    <!-- SVG Favicon -->
+    <link href="./public/img/TBOYC-Light.svg" rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+    <link href="./public/img//TBOYC-Dark.svg" rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+
+    <!-- Fallback for PNG -->
+    <link href="./public/img/TBOYC-Light-32.png" rel="icon" type="image/png" media="(prefers-color-scheme: light)"
+        sizes="32">
+    <link href="./public/img/TBOYC-Light-16.png" rel="icon" type="image/png" media="(prefers-color-scheme: light)"
+        sizes="16">
+    <link href="./public/img/TBOYC-Dark-32.png" rel="icon" type="image/png" media="(prefers-color-scheme: dark)"
+        sizes="32">
+    <link href="./public/img/TBOYC-Dark-16.png" rel="icon" type="image/png" media="(prefers-color-scheme: dark)"
+        sizes="16">
+
+    <!-- Fallback for ICO -->
+    <link href="./public/img/TBOYC-Light.ico" rel="shortcut icon" type="image/x-icon"
+        media="(prefers-color-scheme: light)">
+    <link href="./public/img/TBOYC-Dark.ico" rel="shortcut icon" type="image/x-icon"
+        media="(prefers-color-scheme: dark)">
+    <!-- endregion -->
+
+    <style>
+        * {
+            background-color: #f8fafc;
+        }
+
+        .theme-icon {
+            content: url("public/img/TBOYC-Light.svg");
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            .theme-icon {
+                content: url("public/img/TBOYC-Dark.svg");
+            }
+        }
+
+        .min-dvh-100 {
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="py-16 md:px-32 px-16 border-b-black border-solid border-2">
+        <div class="grid gap-8 md:gap-16 grid-cols-1 sm:grid-cols-2 items-start">
+            <article class="w-full">
+                <img class="theme-icon" alt="TBOYC Icon" width="25%">
+                <br>
+                <h1 class="text-6xl font-bold">The Beauty of Your Code (TBOYC)</h1>
+                <br>
+                <p class="text-3xl font-light">
+                    A lightweight JavaScript library designed to beautifully highlight your code snippets.
+                </p>
+            </article>
+            <article class="w-full">
+                <div id="tboyc-code">
+                    <!-- Meta settings for customization -->
+                    <meta name="theme" content="vscode/dark">
+                    <meta name="btn" content="on">
+                    <meta name="title" content="webDemo.js">
+                    <meta name="width" content="100%">
+
+                    <!-- Code block -->
+                    <code>
+                        /**
+                         * Welcome to TBOYC Web Demo!
+                         * A simple showcase of syntax highlighting.
+                         */
+                
+                        // Greet the user
+                        function hello() {
+                            console.log("Hello, World!");
+                        }
+                
+                        // Calculate and log the sum
+                        function sum(a, b) {
+                            console.log(\`Sum: \${a + b}\`);
+                        }
+                
+                        // Start the demo
+                        hello();
+                        sum(10, 20);
+                    </code>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+
+    <section class="w-full flex flex-col items-center justify-center border-b-black border-solid border-2 py-16">
+        <div class="">
+            <h1 class="text-4xl font-bold">Download TBOYC
+            </h1>
+        </div>
+        <br>
+        <div class="grid gap-4 items-center">
+
+            <!-- View on GitHub -->
+            <a href="https://github.com/cigci/the-beauty-of-your-code" target="_blank" rel="noopener noreferrer"
+                class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:ring focus:ring-gray-300 transition">
+                View on GitHub
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 md:px-32 px-16 border-b-black border-solid border-2">
+        <header class="col-span-full text-center mb-8">
+            <h1 class="text-4xl font-bold ">Code to TBOYC Converter</h1>
+            <p class="text-2xl font-light">Easily format and beautify your code with TBOYC.</p>
+        </header>
+
+        <br> <br>
+
+        <div class="grid gap-8 md:gap-16 grid-cols-1 sm:grid-cols-2 items-start">
+            <article class="w-full">
+                <div class="col-span-full">
+                    <div class="flex justify-between items-center w-full mb-4">
+                        <label for="yourCode" class="block text-lg font-medium text-gray-700">Your Code</label>
+                        <button onclick="generateTBOYC()" type="button"
+                            class="ml-4 rounded-md bg-indigo-600 px-4 py-2 text-sm 
+                            font-semibold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition">
+                            Convert to TBOYC</button>
+                    </div>
+
+                    <div class="flex justify-between items-center w-full mb-4">
+
+                        <label for="theme" class="block text-lg font-medium text-gray-700">Select Theme</label>
+                        <div class="relative ml-4">
+                            <select id="theme" name="theme" class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 
+                                rounded shadow leading-tight focus:outline-none focus:shadow-outline transition">
+                                <option value="vscode/dark">Visual Studio Code - Dark</option>
+                                <option value="vscode/light">Visual Studio Code - Light</option>
+                                <option value="forest">Forest</option>
+                            </select>
+
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 15.25l-6.364-6.364a.75.75 0 111.06-1.06L12 13.19l5.304-5.304a.75.75 0 111.06 1.06L12 15.25z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-2">
+                        <textarea id="yourCode" name="yourCode" rows="32"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                             placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"></textarea>
+                    </div>
+                </div>
+            </article>
+
+            <article class="w-full" id="demo-tboyc">
+            </article>
+        </div>
+
+        <script>
+            generateTBOYC();
+            function generateTBOYC() {
+                const yourCodeTextArea = document.getElementById('yourCode');
+                const demoTboycCode = document.getElementById('demo-tboyc');
+                const tboycTheme = document.getElementById('theme');
+
+                const createdTboycCode = document.createElement('div');
+                const tboycCode = document.createElement('code');
+
+                demoTboycCode.innerHTML = '';
+
+                createdTboycCode.innerHTML = `
+                    <meta name="btn" content="on">
+                    <meta name="title" content="webDemo.js">
+                    <meta name="width" content="100%">
+                    <meta name="theme" content="${tboycTheme.value}">
+                `;
+                createdTboycCode.id = 'tboyc-code';
+
+                const userCode = yourCodeTextArea.value.trim();
+                const exampleCode = `// Example Code\nfunction sayHello(name) {\n    return \`Hello, \${name}!\`;\n}\n\nconsole.log(sayHello('World'));`;
+                tboycCode.textContent = userCode || exampleCode;
+
+                createdTboycCode.appendChild(tboycCode);
+                demoTboycCode.appendChild(createdTboycCode);
+
+                tboyc.update();
+            }
+        </script>
+    </section>
+
+</body>
+
+</html>

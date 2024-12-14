@@ -1,0 +1,17 @@
+{
+  "name": "the-beauty-of-your-code-demo-website-private",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tailwindcss": "^3.4.15"
+  },
+  "scripts": {
+    "build-ts": "bun build src/*.ts --outfile dist/js/*.js",
+    "watch-ts": "bun build src/*.ts --outfile web/public/dist/js/*.js --watch",
+    "build-tailwind": "tailwindcss -i ./src/tailwind.css -o ./web/public/css/style.css --minify",
+    "watch-tailwind": "tailwindcss -i ./src/tailwind.css -o ./web/public/css/style.css --watch"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
